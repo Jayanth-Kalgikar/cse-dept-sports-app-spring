@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
@@ -26,17 +27,32 @@ import com.app.sports.service.SpoService;
 public class SpoController {
     @Autowired
     private SpoService spoEntityService;
+    
+    @GetMapping("/cse/dept/sports/search")
+    public SpoEntity getEventByName(@RequestParam String eventName) {
+    	
+    	return spoEntityService.getEventName(eventName);
+    	
+    }
 
     @PostMapping("/cse/dept/sports/")
     public SpoEntity createEvent(@RequestBody SpoEntity spoEntity) {
         return spoEntityService.saveSpoEntity(spoEntity);
     }
     
+    @PostMapping("/cse/dept/sports/users/add")
+    public String  createEvent(@RequestBody SpoLogin spoLogin) {
+        return spoEntityService.saveUser(spoLogin);
+    }
+    
     @PostMapping("/cse/dept/sports/login")
     public boolean login(@RequestBody SpoLogin loginRequest) {
         String email = loginRequest.getEmail();
         String password = loginRequest.getPassword();
-        return true;
+        
+        return spoEntityService.isUserValid(loginRequest);
+        
+       // return true;
     }
 
     @GetMapping("/cse/dept/sports/{id}")

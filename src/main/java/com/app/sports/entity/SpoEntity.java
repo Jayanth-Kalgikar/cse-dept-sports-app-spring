@@ -7,68 +7,62 @@ import jakarta.persistence.Id;
 public class SpoEntity {
 
     @Id
-    private int EventId;
-    private String EventName;
-    private String EventDate;
-    private String SportName;
-    private String SportType;
+    private int eventId;
+    private String eventName;
+    private String eventDate;
+    private String sportName;
+    private String sportType;
+	public SpoEntity() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public SpoEntity(int eventId, String eventName, String eventDate, String sportName, String sportType) {
+		super();
+		this.eventId = eventId;
+		this.eventName = eventName;
+		this.eventDate = eventDate;
+		this.sportName = sportName;
+		this.sportType = sportType;
+	}
+	public int getEventId() {
+		return eventId;
+	}
+	public void setEventId(int eventId) {
+		this.eventId = eventId;
+	}
+	public String getEventName() {
+		return eventName;
+	}
+	public void setEventName(String eventName) {
+		this.eventName = eventName;
+	}
+	public String getEventDate() {
+		return eventDate;
+	}
+	public void setEventDate(String eventDate) {
+		this.eventDate = eventDate;
+	}
+	public String getSportName() {
+		return sportName;
+	}
+	public void setSportName(String sportName) {
+		this.sportName = sportName;
+	}
+	public String getSportType() {
+		return sportType;
+	}
+	public void setSportType(String sportType) {
+		this.sportType = sportType;
+	}
+	@Override
+	public String toString() {
+		return "SpoEntity [eventId=" + eventId + ", eventName=" + eventName + ", eventDate=" + eventDate
+				+ ", sportName=" + sportName + ", sportType=" + sportType + "]";
+	}
+    
+    
+    
+    
 
-    public SpoEntity(int eventId, String eventName, String eventDate, String sportName, String sportType) {
-        super();
-        EventId = eventId;
-        EventName = eventName;
-        EventDate = eventDate;
-        SportName = sportName;
-        SportType = sportType;
-    }
-
-    public SpoEntity() {
-        super();
-    }
-
-    public int getEventId() {
-        return EventId;
-    }
-
-    public void setEventId(int eventId) {
-        EventId = eventId;
-    }
-
-    public String getEventName() {
-        return EventName;
-    }
-
-    public void setEventName(String eventName) {
-        EventName = eventName;
-    }
-
-    public String getEventDate() {
-        return EventDate;
-    }
-
-    public void setEventDate(String eventDate) {
-        EventDate = eventDate;
-    }
-
-    public String getSportName() {
-        return SportName;
-    }
-
-    public void setSportName(String sportName) {
-        SportName = sportName;
-    }
-
-    public String getSportType() {
-        return SportType;
-    }
-
-    public void setSportType(String sportType) {
-        SportType = sportType;
-    }
-
-    @Override
-    public String toString() {
-        return "SpoEntity [EventId=" + EventId + ", EventName=" + EventName + ", EventDate=" + EventDate
-                + ", SportName=" + SportName + ", SportType=" + SportType + "]";
-    }
+   
 }
